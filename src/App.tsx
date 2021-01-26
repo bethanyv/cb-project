@@ -1,25 +1,25 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { MoviePageComponent } from './components/Pages/MoviePageComponent';
+import { IntlProvider } from 'react-intl';
+import { defaultMessages } from './lib/intl/messages/messages';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <IntlProvider locale="en" key='en' messages={defaultMessages}>
+      <div className="cb-app">
+        <div className="cb-header">
+          <div className='cb-banner'>
+            <img src={logo} className="cb-logo" alt="logo" />
+            <p className='cb-title'>The Cam and Bethany Page</p>
+          </div>
+        </div>
+        <div className='cb-main-content'>
+          <MoviePageComponent />
+        </div>
+      </div>
+    </IntlProvider>
   );
 }
 
